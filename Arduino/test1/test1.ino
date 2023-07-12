@@ -6,7 +6,7 @@
 
 HX711 scale(DOUT, CLK);
 
-float calibration_factor = -181;    // 로드셀 종류나 상황에 따라 적당한 값으로 시작 kg:-248000, g:-214
+float calibration_factor = -207;    // 로드셀 종류나 상황에 따라 적당한 값으로 시작 kg:-248000, g:-214
 unsigned long startTime = 0;   // 시작 시간 저장 변수
 
 void setup() {
@@ -28,13 +28,13 @@ void setup() {
 }
 
 void loop() {
-  unsigned long currentTime = millis(); // 현재 시간 저장
-  unsigned long elapsedTime = currentTime - startTime; // 경과 시간 계산
+  long long int currentTime = millis(); // 현재 시간 저장
+  long long int elapsedTime = currentTime - startTime; // 경과 시간 계산
 
   scale.set_scale(calibration_factor); // 보정 계수 적용
 
   Serial.print("Reading: ");
-  Serial.print(scale.get_units(), 1);
+  Serial.print(scale.get_units()+0.203*elapsedTime / 1000.0, 1);
   Serial.print(" g"); // 단위 출력 (kg 또는 g)
   Serial.print(" Calibration factor: ");
   Serial.print(calibration_factor);
