@@ -34,7 +34,7 @@ void loop() {
   scale.set_scale(calibration_factor); // 보정 계수 적용
 
   Serial.print("Reading: ");
-  Serial.print(scale.get_units()+0.203*elapsedTime / 1000.0, 1);
+  Serial.print(scale.get_units(), 1);
   Serial.print(" g"); // 단위 출력 (kg 또는 g)
   Serial.print(" Calibration factor: ");
   Serial.print(calibration_factor);
