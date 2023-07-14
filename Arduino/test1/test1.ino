@@ -6,7 +6,7 @@
 
 HX711 scale(DOUT, CLK);
 
-float calibration_factor = -207;    // 로드셀 종류나 상황에 따라 적당한 값으로 시작 kg:-248000, g:-214
+float calibration_factor = 200;    // 로드셀 종류나 상황에 따라 적당한 값으로 시작 kg:-248000, g:-214
 unsigned long startTime = 0;   // 시작 시간 저장 변수
 
 void setup() {
